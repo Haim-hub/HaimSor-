@@ -11,7 +11,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the rest of your app's source code from your host to your image filesystem.
-COPY . .
+COPY . ./Users/niklashaim/Desktop/Soroe/Soroe/.gitignore
 
 # Make port 3000 available to the world outside this container
 EXPOSE 3000
