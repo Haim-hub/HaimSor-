@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viggo Skærm</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+<script>
+    async function fetchData() {
+         try {
+            const res = await axios.get('https://proxy.cors.sh/http://5.186.16.43:8001/api') //5.186.16.43 192.168.100.5
+            .then(response => {
+                const responseDiv = document.getElementById('apiResponse');
+                responseDiv.innerHTML = response.data;
+                console.log(response.data); // The response data
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+            });
+        } catch (error) {
+            console.error('There was a problem with the fetch operation:', error);
+        }
+    }
+
+    // Call the function when the window loads
+    window.onload = fetchData;
+</script>
+</head>
+
+    
+<body>
+    <div id="apiResponse"></div>
+</body>
+</html>
